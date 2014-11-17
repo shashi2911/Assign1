@@ -1,0 +1,47 @@
+
+import java.io.*;
+public class Num_To_Words {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String args[])throws IOException
+    {
+        String a1[]={"zero","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","ninteen"};
+        String a2[]={"","","twenty","thirty","forty","fifty","sixty","seventy","eighty","ninty"};
+        while(true)
+        {
+            System.out.println("1.Convert\n2.exit");
+            System.out.println("Enter your choice:");
+            BufferedReader b=new BufferedReader(new InputStreamReader(System.in));
+            String s=b.readLine();
+            int n=Integer.parseInt(s);
+            switch(n)
+            {
+                case 1:
+                System.out.println("Enter the number");
+                int c=Integer.parseInt(b.readLine());
+                if(c>999)
+                   System.out.println("Enter the three digit number only");
+                 else
+                {
+                int rem=c%100;
+                int rem2=rem%10;
+                int rem3=rem/10;
+                int first=c/100;
+                if(rem2==0 && rem3==0)
+                   System.out.println(a1[first]+" hundred");
+                else if(rem2==0)
+                   System.out.println(a1[first]+" hundred and "+a2[rem3]);
+                   else
+                System.out.println(a1[first]+" hundred and "+a2[rem3]+" "+a1[rem2]);
+            }
+                break;
+                case 2:
+                   return;
+                default:
+                System.out.println("Enter correct option to proceed!!");
+            }
+            }
+        }
+    }
